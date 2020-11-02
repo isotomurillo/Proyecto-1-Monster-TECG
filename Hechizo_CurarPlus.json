@@ -1,0 +1,7 @@
+{
+  "Attributes": {
+    "type": "spell",
+    "mana": 300,
+    "action": "heal+"
+  }
+}
