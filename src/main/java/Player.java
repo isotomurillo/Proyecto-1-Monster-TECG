@@ -1,3 +1,5 @@
+import com.fasterxml.jackson.databind.JsonNode;
+
 import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -64,7 +66,10 @@ class PlayerSheet extends JPanel implements Runnable{
             try {
                 Socket mySocket = new Socket(textField1.getText(),9999);
                 ObjectOutputStream send = new ObjectOutputStream(mySocket.getOutputStream());
-                send.writeObject("Hello");
+                Deck deck = new Deck();
+                Stack stack = deck.Deck1();
+                JsonNode node = Json.toJson(stack.get());
+                send.writeObject(node);
                 mySocket.close();
             }catch (Exception ex){
                 System.out.println(ex);

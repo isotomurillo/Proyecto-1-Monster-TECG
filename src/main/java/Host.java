@@ -1,3 +1,5 @@
+import com.fasterxml.jackson.databind.JsonNode;
+
 import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -48,7 +50,8 @@ class HostSheet extends JPanel implements Runnable {
             while (true){
                 Socket mySocket = myServerSocket.accept();
                 ObjectInputStream packet = new ObjectInputStream(mySocket.getInputStream());
-                System.out.println(packet.readObject());
+                JsonNode node = (JsonNode) packet.readObject();
+                Card card = Json.fromJson(node, Card.class);
             }
         }catch (Exception e){
             System.out.println(e);
