@@ -1,0 +1,7 @@
+{
+  "Attributes": {
+    "Type": "minion",
+    "mana": 250,
+    "action": 100
+  }
+}

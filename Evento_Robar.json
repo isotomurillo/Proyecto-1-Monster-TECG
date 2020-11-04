@@ -1,0 +1,7 @@
+{
+  "Attributes": {
+    "type": "event",
+    "mana": 200,
+    "action": "steal_event"
+  }
+}
