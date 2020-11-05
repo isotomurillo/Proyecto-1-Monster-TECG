@@ -1,6 +1,8 @@
 public class Heath {
     public int health;
-    public int attack;
+    // attack ataque de carta
+    // moreH aumento HP
+
 
     public int getHealth() {
         return this.health;
@@ -10,13 +12,19 @@ public class Heath {
         this.health = health;
     }
 
-    public int lessHeath (int attack){
+    public void lessHeath (int attack){
         if (health-attack <= 0){
-            this.health=0;
-            return this.health;
+            setHealth(0);
         }else {
-            this.health-=attack;
-            return this.health;
+            setHealth(this.health-attack);
+        }
+    }
+
+    public void moreHealth(int moreH){
+        if (this.health+moreH>=1000){
+            setHealth(1000);
+        } else {
+            setHealth(health+=moreH);
         }
     }
 }

@@ -1,6 +1,8 @@
 public class Mana {
     public int mana;
-    public int cmana;  //cmana es el valor de mana de la carta
+    //cmana es el valor de mana de la carta
+    public int more=200;
+
 
     public void setMana(int mana) {
         this.mana = mana;
@@ -12,9 +14,18 @@ public class Mana {
 
     public int lessmana(int cmana){
         if (mana>cmana){
-            this.mana-=cmana;
+            setMana(mana-=cmana);
         }
         return this.mana;
+    }
+
+    public void moremana(){
+        if (mana+more>=1000){
+            setMana(1000);
+        } else{
+            setMana(mana+=more);
+        }
+
     }
 
     public boolean verMana(int cmana){
