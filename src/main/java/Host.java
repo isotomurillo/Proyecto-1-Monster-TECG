@@ -52,6 +52,7 @@ class HostSheet extends JPanel implements Runnable {
                 ObjectInputStream packet = new ObjectInputStream(mySocket.getInputStream());
                 JsonNode node = (JsonNode) packet.readObject();
                 Card card = Json.fromJson(node, Card.class);
+                System.out.println(card.action);
             }
         }catch (Exception e){
             System.out.println(e);
@@ -64,7 +65,10 @@ class HostSheet extends JPanel implements Runnable {
             try {
                 Socket mySocket = new Socket("127.0.0.1",8888);
                 ObjectOutputStream send = new ObjectOutputStream(mySocket.getOutputStream());
-                send.writeObject("Hello2");
+                Deck deck = new Deck();
+                Stack stack = deck.Deck1();
+                JsonNode node = Json.toJson(stack.get());
+                send.writeObject(node);
                 mySocket.close();
             }catch (Exception ex){
                 System.out.println(ex);

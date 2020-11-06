@@ -51,8 +51,10 @@ class PlayerSheet extends JPanel implements Runnable{
 
             while (true){
                 Socket mySocket = myServerSocket.accept();
-                ObjectInputStream packet = new ObjectInputStream(mySocket.getInputStream());
-                System.out.println(packet.readObject());
+                ObjectInputStream packetS = new ObjectInputStream(mySocket.getInputStream());
+                JsonNode node = (JsonNode) packetS.readObject();
+                Card card = Json.fromJson(node, Card.class);
+                System.out.println(card.action);
             }
 
         }catch (Exception e){
