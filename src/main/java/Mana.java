@@ -12,14 +12,13 @@ public class Mana {
         return mana;
     }
 
-    public int lessmana(int cmana){
+    public void lessMana(int cmana){
         if (mana>cmana){
             setMana(mana-=cmana);
         }
-        return this.mana;
     }
 
-    public void moremana(){
+    public void moreMana(){
         if (mana+more>=1000){
             setMana(1000);
         } else{

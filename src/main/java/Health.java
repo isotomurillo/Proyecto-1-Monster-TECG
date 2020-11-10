@@ -1,19 +1,21 @@
-public class Turn {
+public class Health {
 
     int life;
     boolean Freeze = false;
     boolean Power = false;
 
-    public Turn(){
+    public Health(){
         life = 1000;
+    }
+
+    public int getLife() {
+        return life;
     }
 
     public void Receives(Card card){
         if (card.type.contentEquals("minion")){
             life = life - (int)card.action;
-            System.out.println(life);
         }else {
-            System.out.println("Cloe es gei");
         }
     }
     public void Sends(Card card){
