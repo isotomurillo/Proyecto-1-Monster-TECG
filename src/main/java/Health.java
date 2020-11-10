@@ -15,7 +15,10 @@ public class Health {
     public void Receives(Card card){
         if (card.type.contentEquals("minion")){
             life = life - (int)card.action;
-        }else {
+        }else if (card.type.contentEquals("spell")){
+
+        }else{
+            System.out.println("Event");
         }
     }
     public void Sends(Card card){
