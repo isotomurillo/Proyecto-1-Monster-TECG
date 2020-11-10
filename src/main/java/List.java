@@ -1,16 +1,12 @@
 public class List {
     private NodeList head;
     private NodeList tail;
-    private int size;
+    public int size;
 
     public List(){
         this.head = null;
         this.tail = null;
         this.size = 0;
-    }
-
-    public int size(){
-        return this.size;
     }
 
     public void insertLast(Card data){
@@ -62,5 +58,21 @@ public class List {
             return temp.card;
         }
         return null;
+    }
+    
+    public String returnName(int num){
+        if (num <= size){
+            NodeList temp = this.head;
+            Card card;
+            String name = null;
+            int e = 0;
+            while (e != num){
+                temp = temp.next;
+                e++;
+            }
+            card = temp.card;
+            name = card.action + " " + card.mana;
+            return name;
+        }else return null;
     }
 }
